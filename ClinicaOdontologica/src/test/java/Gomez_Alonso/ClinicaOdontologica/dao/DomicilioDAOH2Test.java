@@ -1,22 +1,19 @@
 package Gomez_Alonso.ClinicaOdontologica.dao;
 
-import Gomez_Alonso.ClinicaOdontologica.dao.BD;
-import Gomez_Alonso.ClinicaOdontologica.model.Domicilio;
+import Gomez_Alonso.ClinicaOdontologica.entity.Domicilio;
+import Gomez_Alonso.ClinicaOdontologica.repository.DomicilioRepository;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.sql.Connection;
-import java.util.List;
+import java.util.Optional;
 
 class DomicilioDAOH2Test {
-    DomicilioDAOH2 domicilioDAOH2 = new DomicilioDAOH2();
+    private DomicilioRepository domicilioRepository;
 
     @Test
     void testGuardar() {
-        BD.crearTablas();
         Domicilio expected = new Domicilio("calle", 0, "localidad", "provincia");
-        Domicilio result = domicilioDAOH2.guardar(expected);
+        Domicilio result = domicilioRepository.save(expected);
         // Comparar atributos individualmente
         Assertions.assertNotNull(result, "El resultado de guardar no debería ser nulo");
         Assertions.assertEquals(expected.getId(), result.getId(), "El id del domicilio no coincide");
@@ -28,10 +25,13 @@ class DomicilioDAOH2Test {
 
     @Test
     void testBuscarPorId() {
-        BD.crearTablas();
         Domicilio expected = new Domicilio("calle", 2, "localidad", "provincia");
-        domicilioDAOH2.guardar(expected);
-        Domicilio result = domicilioDAOH2.buscarPorId(3);
+        domicilioRepository.save(expected);
+        Optional<Domicilio> resultOp = domicilioRepository.findById(Long.valueOf(2));
+
+        Assertions.assertTrue(resultOp.isPresent());
+        Domicilio result = resultOp.get();
+
 
         // Comparar atributos individualmente
         Assertions.assertNotNull(result);
@@ -44,7 +44,7 @@ class DomicilioDAOH2Test {
 
     @Test
     void testEliminar() {
-        int id = 3;
+        Long id = Long.valueOf(3);
         // Agregar un domicilio para la prueba
         //Domicilio domicilio = new Domicilio( "calle", 0, "localidad", "provincia");
         //domicilioDAOH2.guardar(domicilio);
@@ -55,20 +55,20 @@ class DomicilioDAOH2Test {
         // se necesita decirle q id borrar sin guardar una nueva.
 
         // Verificar que el domicilio existe antes de eliminarlo
-        Domicilio domicilioExistente = domicilioDAOH2.buscarPorId(id);
+        Optional<Domicilio> domicilioExistente = domicilioRepository.findById(id);
         Assertions.assertNotNull(domicilioExistente);
 
         // Llamar al método eliminar
-        domicilioDAOH2.eliminar(id);
+        domicilioRepository.deleteById(id);
 
         // Verificar que el domicilio ya no existe después de eliminarlo
-        Domicilio domicilioEliminado = domicilioDAOH2.buscarPorId(id);
+        Optional<Domicilio> domicilioEliminado = domicilioRepository.findById(id);
         Assertions.assertNull(domicilioEliminado);
     }
 
     @Test
     void testActualizar() {
-        domicilioDAOH2.actualizar(new Domicilio(Integer.valueOf(0), "calle", Integer.valueOf(0), "localidad", "provincia"));
+        domicilioRepository.save(new Domicilio(Long.valueOf(0), "calle", 0, "localidad", "provincia"));
     }
 
     @Test

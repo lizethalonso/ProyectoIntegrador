@@ -1,16 +1,29 @@
-package Gomez_Alonso.ClinicaOdontologica.model;
+package Gomez_Alonso.ClinicaOdontologica.entity;
+
+import jakarta.persistence.*;
 
 import java.sql.Time;
 import java.time.LocalDate;
+import java.util.Set;
 
+@Entity
+@Table(name = "turnos")
 public class Turno {
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "paciente_id", referencedColumnName = "id")
     private Paciente paciente;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "odontologo_id", referencedColumnName = "id")
     private Odontologo odontologo;
+    @Column
     private LocalDate fecha;
+    @Column
     private Time hora;
 
-    public Turno(Integer id, Paciente paciente, Odontologo odontologo, LocalDate fecha, Time hora) {
+    public Turno(Long id, Paciente paciente, Odontologo odontologo, LocalDate fecha, Time hora) {
         this.id = id;
         this.paciente = paciente;
         this.odontologo = odontologo;
@@ -21,11 +34,11 @@ public class Turno {
     public Turno() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

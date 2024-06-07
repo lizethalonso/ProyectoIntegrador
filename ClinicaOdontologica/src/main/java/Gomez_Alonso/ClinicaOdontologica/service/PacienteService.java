@@ -1,32 +1,41 @@
 package Gomez_Alonso.ClinicaOdontologica.service;
 
 
-import Gomez_Alonso.ClinicaOdontologica.dao.PacienteDAOH2;
-import Gomez_Alonso.ClinicaOdontologica.dao.iDao;
-import Gomez_Alonso.ClinicaOdontologica.model.Odontologo;
-import Gomez_Alonso.ClinicaOdontologica.model.Paciente;
+import Gomez_Alonso.ClinicaOdontologica.entity.Paciente;
+import Gomez_Alonso.ClinicaOdontologica.repository.PacienteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
+@Service
 public class PacienteService {
-private iDao<Paciente> pacienteiDao;
+    @Autowired
 
-    public PacienteService() {
-        pacienteiDao=new PacienteDAOH2();
-    }
+    private PacienteRepository pacienteRepository;
+
     //metodos manuales
     public Paciente guardarPaciente(Paciente paciente){
-        return pacienteiDao.guardar(paciente);
+        return pacienteRepository.save(paciente);
     }
-    public Paciente buscarPorID(Integer id){
-        return pacienteiDao.buscarPorId(id);
+    public Optional<Paciente> buscarPorID(Long id){
+        return pacienteRepository.findById(id);
     }
-    public List<Paciente> buscarTodos(){ return pacienteiDao.buscarTodos();}
-    public Paciente buscarPorString(String campo, String string){
-        return pacienteiDao.buscarPorString(campo,string);
+    public List<Paciente> buscarTodos(){
+        return pacienteRepository.findAll();
+    }
+    public Optional<Paciente> buscarPorEmail(String email){
+        return pacienteRepository.findByEmail(email);
+    }
+    public Optional<Paciente> buscarPorCedula(String cedula){
+        return pacienteRepository.findByCedula(cedula);
     }
     public void actualizarPaciente(Paciente paciente){
-        pacienteiDao.actualizar(paciente);
+        pacienteRepository.save(paciente);
     }
-    public void eliminarPaciente(Integer id){pacienteiDao.eliminar(id);}
+    public void eliminarPaciente(Long id){
+        pacienteRepository.deleteById(id);
+    }
+
 }
