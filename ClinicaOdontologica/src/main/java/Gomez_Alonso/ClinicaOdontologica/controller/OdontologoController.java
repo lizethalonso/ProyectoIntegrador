@@ -19,7 +19,6 @@ public class OdontologoController {
 
     @PostMapping //--> nos permite persistir los datos que vienen desde la vista
     public ResponseEntity<?> guardarOdontologo(@RequestBody Odontologo odontologo){
-        //No ponemos numeroMatricula (como el atributo del obj) porque el campo está nombrado en la BD como numero_matricula
         Optional<Odontologo> odontologoExistente = odontologoService.buscarPorMatricula(odontologo.getmatricula());
         if (odontologoExistente.isPresent()){
             return ResponseEntity.badRequest().body("Ya existe un odontólogo con matrícula: " + odontologo.getmatricula());
@@ -38,7 +37,7 @@ public class OdontologoController {
         }
     }
 
-    @GetMapping("/buscar/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> buscarPorOdontologo(@PathVariable Long id){
         Optional<Odontologo> odontologoBuscado = odontologoService.buscarPorID(id);
         if (odontologoBuscado.isPresent()) {
@@ -48,7 +47,7 @@ public class OdontologoController {
         }
     }
 
-    @GetMapping("/buscar/matricula")
+    @GetMapping("/matricula/{matricula}")
     public ResponseEntity<?> buscarPorCampo(@PathVariable String matricula){
         Optional<Odontologo> odontologoBuscado = odontologoService.buscarPorMatricula(matricula);
         if (odontologoBuscado.isPresent()) {

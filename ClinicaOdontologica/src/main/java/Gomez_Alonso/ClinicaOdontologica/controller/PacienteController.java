@@ -22,7 +22,7 @@ public class PacienteController {
     @PostMapping //--> nos permite persistir los datos que vienen desde la vista
     public ResponseEntity<?> guardarPaciente(@RequestBody Paciente paciente){
         Optional<Paciente> pacienteExistente = pacienteService.buscarPorCedula(paciente.getCedula());
-        if ( pacienteExistente != null){
+        if (pacienteExistente.isPresent()){
             return ResponseEntity.badRequest().body("Ya existe un paciente con cédula " + paciente.getCedula());
         }else {
             return ResponseEntity.ok(pacienteService.guardarPaciente(paciente));
@@ -39,30 +39,40 @@ public class PacienteController {
         }
     }
 
-    @GetMapping("/buscar/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> buscarPorPaciente(@PathVariable Long id){
         Optional<Paciente> pacienteBuscado = pacienteService.buscarPorID(id);
-        if (pacienteBuscado != null){
+        if (pacienteBuscado.isPresent()){
             return ResponseEntity.ok(pacienteBuscado);
         }else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente con ID " + id + " no encontrado");
         }
     }
 
-    @GetMapping("/buscar/{email}")
+    @GetMapping("/email/{email}")
     public ResponseEntity<?> buscarPorEmail(@PathVariable String email){
         Optional<Paciente> pacienteBuscado = pacienteService.buscarPorEmail(email);
-        if (pacienteBuscado != null){
+        if (pacienteBuscado.isPresent()){
             return ResponseEntity.ok(pacienteBuscado);
         }else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente con " + email + " no encontrado");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente con email " + email + " no encontrado");
+        }
+    }
+
+    @GetMapping("/cedula/{cedula}")
+    public ResponseEntity<?> buscarPorCedula(@PathVariable String cedula){
+        Optional<Paciente> pacienteBuscado = pacienteService.buscarPorCedula(cedula);
+        if (pacienteBuscado.isPresent()){
+            return ResponseEntity.ok(pacienteBuscado);
+        }else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente con cedula " + cedula + " no encontrado");
         }
     }
 
     @PutMapping
     public ResponseEntity<String> actualizarPaciente(@RequestBody Paciente paciente){
         Optional<Paciente> pacienteBuscado= pacienteService.buscarPorID(paciente.getId());
-        if(pacienteBuscado!=null){
+        if(pacienteBuscado.isPresent()){
             pacienteService.actualizarPaciente(paciente);
             return ResponseEntity.ok("Paciente actualizado con éxito");
         }else{
@@ -74,7 +84,7 @@ public class PacienteController {
 
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<String> eliminarPaciente(@PathVariable Long id){
-        if (pacienteService.buscarPorID(id) != null){
+        if (pacienteService.buscarPorID(id).isPresent()){
             pacienteService.eliminarPaciente(id);
             return ResponseEntity.ok().body("Paciente con ID " + id + " eliminado con éxito");
         }else{

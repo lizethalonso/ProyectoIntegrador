@@ -19,7 +19,9 @@ import java.util.Optional;
 public class TurnoController {
     @Autowired
     private TurnoService turnoService;
+    @Autowired
     private PacienteService pacienteService;
+    @Autowired
     private OdontologoService odontologoService;
 
     @PostMapping
@@ -27,6 +29,10 @@ public class TurnoController {
         Optional<Paciente> pacienteBuscado= pacienteService.buscarPorID(turno.getPaciente().getId());
         Optional<Odontologo> odontologoBuscado= odontologoService.buscarPorID(turno.getOdontologo().getId());
         if(pacienteBuscado.isPresent()&&odontologoBuscado.isPresent()){
+            Paciente paciente = pacienteBuscado.get();
+            Odontologo odontologo = odontologoBuscado.get();
+            turno.setPaciente(paciente);
+            turno.setOdontologo(odontologo);
             return ResponseEntity.ok(turnoService.guardarTurno(turno));
         }else{
             return ResponseEntity.badRequest().build();
@@ -52,6 +58,11 @@ public class TurnoController {
     public ResponseEntity<?>actualizarTurno(@RequestBody Turno turno){
         Optional<Turno> turnoBuscado= turnoService.buscarPorId(turno.getId());
         if(turnoBuscado.isPresent()){
+            Turno turnoExistente = turnoBuscado.get();
+            turnoExistente.setPaciente(turno.getPaciente());
+            turnoExistente.setOdontologo(turno.getOdontologo());
+            turnoExistente.setFecha(turno.getFecha());
+            turnoExistente.setHora(turno.getHora());
             turnoService.actualizarTurno(turno);
             return ResponseEntity.ok("Turno actualizado con éxito");
         }else {

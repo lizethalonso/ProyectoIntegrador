@@ -5,28 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d333dde-19e6-4959-8589-9742c13b9fc1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/clinicaOdontologicaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/clinicaOdontologicaApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/OdontologoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/OdontologoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/PacienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/PacienteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/TurnoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/TurnoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/dao/BD.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/dao/DomicilioDAOH2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/dao/OdontologoDAOH2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/dao/PacienteDAOH2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/dao/TurnoDAOLISTA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/dao/iDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/exceptions/PacienteNoEncontradoException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/model/Domicilio.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/entity/Domicilio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/model/Odontologo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/entity/Odontologo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/model/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/entity/Paciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/model/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/entity/Turno.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/service/OdontologoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/service/OdontologoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/service/PacienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/service/PacienteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/service/TurnoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/service/TurnoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/test/java/Gomez_Alonso/ClinicaOdontologica/Service/OdontologoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/test/java/Gomez_Alonso/ClinicaOdontologica/Service/OdontologoServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/test/java/Gomez_Alonso/ClinicaOdontologica/Service/PacienteServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/test/java/Gomez_Alonso/ClinicaOdontologica/Service/PacienteServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/test/java/Gomez_Alonso/ClinicaOdontologica/dao/DomicilioDAOH2Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/test/java/Gomez_Alonso/ClinicaOdontologica/dao/DomicilioDAOH2Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +30,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2hWwRwFgjrGU8Ffr9j5cbM5nxn5" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -57,7 +43,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.clinicaOdontologicaApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -94,10 +85,18 @@
       <option name="presentableId" value="Default" />
       <updated>1717723136687</updated>
       <workItem from="1717723138543" duration="10819000" />
+      <workItem from="1717800579924" duration="5333000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="paciente" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
