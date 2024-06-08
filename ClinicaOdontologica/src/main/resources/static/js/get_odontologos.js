@@ -1,8 +1,8 @@
 window.addEventListener('load', function () {
     (function(){
 
-      //con fetch invocamos a la API de peliculas con el método GET
-      //nos devolverá un JSON con una colección de peliculas
+      //con fetch invocamos a la API de odontólogos con el método GET
+      //nos devolverá un JSON con una colección de odontólogos
       const url = '/odontologos';
       const settings = {
         method: 'GET'
@@ -47,7 +47,7 @@ window.addEventListener('load', function () {
             //luego los datos de la pelicula
             //como ultima columna el boton eliminar
             odontologoRow.innerHTML = '<td>' + updateButton + '</td>' +
-                    '<td class=\"td_numeroMatricula\">' + odontologo.numeroMatricula.toUpperCase() + '</td>' +
+                    '<td class=\"td_matricula\">' + odontologo.matricula.toUpperCase() + '</td>' +
                     '<td class=\"td_nombre\">' + odontologo.nombre.toUpperCase() + '</td>' +
                     '<td class=\"td_apellido\">' + odontologo.apellido.toUpperCase() + '</td>' +
                     '<td>' + deleteButton + '</td>';
