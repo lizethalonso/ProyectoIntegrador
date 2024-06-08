@@ -19,7 +19,7 @@ public class Paciente {
     private String nombre;
     @Column
     private String apellido;
-    @Column(unique = true, nullable = false)
+    @Column(unique = true)
     private String cedula;
     @Column
     private LocalDate fechaIngreso;
