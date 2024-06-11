@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4d333dde-19e6-4959-8589-9742c13b9fc1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/get_odontologos.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/get_odontologos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/entity/Odontologo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/entity/Odontologo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/entity/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/entity/Paciente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +81,8 @@
       <updated>1717723136687</updated>
       <workItem from="1717723138543" duration="10819000" />
       <workItem from="1717800579924" duration="11109000" />
-      <workItem from="1717852474853" duration="2374000" />
+      <workItem from="1717852474853" duration="4404000" />
+      <workItem from="1718139964801" duration="1536000" />
     </task>
     <servers />
   </component>
