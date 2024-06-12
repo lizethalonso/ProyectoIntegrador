@@ -40,16 +40,18 @@ window.addEventListener('load', function () {
 
                     //armamos cada columna de la fila
                     //como primer columna pondremos el boton modificar
-                    //luego los datos de la pelicula
+                    //luego los datos del paciente
                     //como ultima columna el boton eliminar
-                    pacienteRow.innerHTML = '<td>' + paciente.id + '</td>' +
+                    pacienteRow.innerHTML = '<td>' + updateButton + '</td>'+
                         '<td class=\"td_nombre\">' + paciente.nombre.toUpperCase() + '</td>' +
                         '<td class=\"td_apellido\">' + paciente.apellido.toUpperCase() + '</td>' +
                         '<td class=\"td_cedula\">' + paciente.cedula.toUpperCase() + '</td>' +
                         '<td class=\"td_fechaIngreso\">' + paciente.fechaIngreso + '</td>' +
                         '<td class=\"td_calle\">' + paciente.domicilio.calle.toUpperCase() + '</td>' +
+                        '<td class=\"td_numero\">' + paciente.domicilio.numero + '</td>' +
+                        '<td class=\"td_localidad\">' + paciente.domicilio.localidad.toUpperCase() + '</td>' +
+                        '<td class=\"td_provincia\">' + paciente.domicilio.provincia.toUpperCase() + '</td>' +
                         '<td class=\"td_email\">' + paciente.email.toUpperCase() + '</td>' +
-                        '<td>' + updateButton + '</td>'+
                         '<td>' + deleteButton + '</td>';
 
                 };

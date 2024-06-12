@@ -1,7 +1,7 @@
 window.addEventListener('load', function () {
 
     //Al cargar la pagina buscamos y obtenemos el formulario donde estarán
-    //los datos que el paciente ingresará
+    //los datos que el usuario cargará del nuevo paciente
     const formulario = document.querySelector('#add_new_paciente');
 
     //Ante un submit del formulario se ejecutará la siguiente funcion
@@ -12,13 +12,18 @@ window.addEventListener('load', function () {
             nombre: document.querySelector('#nombre').value,
             apellido: document.querySelector('#apellido').value,
             cedula: document.querySelector('#cedula').value,
-            fecha_ingreso: document.querySelector('#fecha_ingreso').value,
-            domicilio: document.querySelector('#domicilio').value,
-            email: document.querySelector('#email').value,
+            fechaIngreso: document.querySelector('#fechaIngreso').value,
+            domicilio:{
+                calle:document.querySelector('#calle').value,
+                numero: document.querySelector('#numero').value,
+                localidad: document.querySelector('#localidad').value,
+                provincia: document.querySelector('#provincia').value,
+            },
+            email: document.querySelector('#email').value
 
         };
         //invocamos utilizando la función fetch la API pacientes con el método POST que guardará
-        //el paciente que enviaremos en formato JSON
+        //la paciente que enviaremos en formato JSON
         const url = '/pacientes';
         const settings = {
             method: 'POST',
@@ -60,19 +65,19 @@ window.addEventListener('load', function () {
         document.querySelector('#nombre').value = "";
         document.querySelector('#apellido').value = "";
         document.querySelector('#cedula').value = "";
-        document.querySelector('#fecha_ingreso').value = "";
+        document.querySelector('#fechaIngreso').value = "";
         document.querySelector('#calle').value = "";
         document.querySelector('#numero').value = "";
         document.querySelector('#localidad').value = "";
+        document.querySelector('#provincia').value = "";
         document.querySelector('#email').value = "";
-
     }
 
     (function(){
         let pathname = window.location.pathname;
         if(pathname === "/"){
             document.querySelector(".nav .nav-item a:first").addClass("active");
-        } else if (pathname == "/get_pacientes.html") {
+        } else if (pathname == "/post_pacientes.html") {
             document.querySelector(".nav .nav-item a:last").addClass("active");
         }
     })();
