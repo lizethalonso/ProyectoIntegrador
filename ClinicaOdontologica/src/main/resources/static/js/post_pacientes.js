@@ -61,7 +61,9 @@ window.addEventListener('load', function () {
         document.querySelector('#apellido').value = "";
         document.querySelector('#cedula').value = "";
         document.querySelector('#fecha_ingreso').value = "";
-        document.querySelector('#domicilio').value = "";
+        document.querySelector('#calle').value = "";
+        document.querySelector('#numero').value = "";
+        document.querySelector('#localidad').value = "";
         document.querySelector('#email').value = "";
 
     }
