@@ -23,7 +23,7 @@ window.addEventListener('load', function () {
 
         };
         //invocamos utilizando la función fetch la API pacientes con el método POST que guardará
-        //la paciente que enviaremos en formato JSON
+        //el paciente que enviaremos en formato JSON
         const url = '/pacientes';
         const settings = {
             method: 'POST',

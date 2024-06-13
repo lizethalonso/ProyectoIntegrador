@@ -24,17 +24,17 @@ window.addEventListener('load', function () {
             let tr_id = odontologo.id;
             odontologoRow.id = tr_id;
 
-            //por cada pelicula creamos un boton delete que agregaremos en cada fila para poder eliminar la misma
+            //por cada odontólogo creamos un boton delete que agregaremos en cada fila para poder eliminar la misma
             //dicho boton invocara a la funcion de java script deleteByKey que se encargará
-            //de llamar a la API para eliminar una pelicula
+            //de llamar a la API para eliminar un odontólogo
             let deleteButton = '<button' +
                                       ' id=' + '\"' + 'btn_delete_' + odontologo.id + '\"' +
                                       ' type="button" onclick="deleteBy('+odontologo.id+')" class="btn btn-danger btn_delete">' +
                                       '&times' +
                                       '</button>';
 
-            //por cada pelicula creamos un boton que muestra el id y que al hacerle clic invocará
-            //a la función de java script findBy que se encargará de buscar la pelicula que queremos
+            //por cada odontólogo creamos un boton que muestra el id y que al hacerle clic invocará
+            //a la función de java script findBy que se encargará de buscar el odontólogo que queremos
             //modificar y mostrar los datos de la misma en un formulario.
             let updateButton = '<button' +
                                       ' id=' + '\"' + 'btn_id_' + odontologo.id + '\"' +
@@ -44,7 +44,7 @@ window.addEventListener('load', function () {
 
             //armamos cada columna de la fila
             //como primer columna pondremos el boton modificar
-            //luego los datos de la pelicula
+            //luego los datos del odontólogo
             //como ultima columna el boton eliminar
             odontologoRow.innerHTML = '<td>' + updateButton + '</td>' +
                     '<td class=\"td_matricula\">' + odontologo.matricula.toUpperCase() + '</td>' +
