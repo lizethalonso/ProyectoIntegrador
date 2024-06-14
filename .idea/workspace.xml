@@ -7,17 +7,10 @@
     <list default="true" id="4d333dde-19e6-4959-8589-9742c13b9fc1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/OdontologoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/OdontologoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/PacienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/PacienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/TurnoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/TurnoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/entity/Odontologo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/entity/Odontologo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/entity/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/entity/Paciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/exception/GlobalExceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/exception/GlobalExceptions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/get_odontologos.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/get_odontologos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/get_pacientes.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/get_pacientes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/delete_odontologos.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/get_odontologos.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/get_odontologos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/update_odontologos.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/update_odontologos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/test/java/Gomez_Alonso/ClinicaOdontologica/Service/PacienteServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/test/java/Gomez_Alonso/ClinicaOdontologica/Service/PacienteServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/repository/TurnoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/repository/TurnoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/post_turnos.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/post_turnos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/update_pacientes.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/update_pacientes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/update_turnos.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/update_turnos.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +93,7 @@
       <workItem from="1718314417863" duration="1053000" />
       <workItem from="1718324344193" duration="1983000" />
       <workItem from="1718334714712" duration="772000" />
-      <workItem from="1718393983130" duration="1596000" />
+      <workItem from="1718393983130" duration="11087000" />
     </task>
     <servers />
   </component>

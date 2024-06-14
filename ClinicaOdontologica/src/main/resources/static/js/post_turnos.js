@@ -7,6 +7,10 @@ window.addEventListener('load', function () {
     //Ante un submit del formulario se ejecutará la siguiente funcion
     formulario.addEventListener('submit', function (event) {
 
+        //Hora para la API
+        const horaInput = document.querySelector('#hora').value;
+        const horaParaAPI = horaInput + ":00"; // Agregamos ":00" para completar el formato "HH:mm:ss"
+
         //creamos un JSON que tendrá los datos del nuevo turno
         const formData = {
             paciente:{
@@ -16,7 +20,7 @@ window.addEventListener('load', function () {
                 matricula: document.querySelector('#matricula').value,
             },
             fecha: document.querySelector('#fecha').value,
-            hora: document.querySelector('#hora').value,
+            hora: horaParaAPI
         };
         //invocamos utilizando la función fetch la API turnos con el método POST que guardará
         //el turno que enviaremos en formato JSON
