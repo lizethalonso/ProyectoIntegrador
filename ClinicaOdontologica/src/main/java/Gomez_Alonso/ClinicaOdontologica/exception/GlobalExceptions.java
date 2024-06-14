@@ -12,4 +12,11 @@ public class GlobalExceptions {
     public ResponseEntity<String>tratamientoResourceNotFoundException(ResourceNotFoundException rnfex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Mensaje: " + rnfex.getMessage());
     }
+
+    @ExceptionHandler({BadRequestException.class})
+    public ResponseEntity<String> tratamientoBadRequestException(BadRequestException brex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Mensaje: " + brex.getMessage());
+    }
+
+
 }

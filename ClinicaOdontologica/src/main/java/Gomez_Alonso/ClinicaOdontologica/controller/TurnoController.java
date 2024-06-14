@@ -3,6 +3,7 @@ package Gomez_Alonso.ClinicaOdontologica.controller;
 import Gomez_Alonso.ClinicaOdontologica.entity.Odontologo;
 import Gomez_Alonso.ClinicaOdontologica.entity.Paciente;
 import Gomez_Alonso.ClinicaOdontologica.entity.Turno;
+import Gomez_Alonso.ClinicaOdontologica.exception.BadRequestException;
 import Gomez_Alonso.ClinicaOdontologica.service.OdontologoService;
 import Gomez_Alonso.ClinicaOdontologica.service.PacienteService;
 import Gomez_Alonso.ClinicaOdontologica.service.TurnoService;
@@ -25,7 +26,7 @@ public class TurnoController {
     private OdontologoService odontologoService;
 
     @PostMapping
-    public ResponseEntity<Turno> guardarTurno(@RequestBody Turno turno){
+    public ResponseEntity<Turno> guardarTurno(@RequestBody Turno turno) throws BadRequestException {
         // Buscamos al paciente y al odontólgo, se usa optional obligatoriamente porque es un objeto q no sabe si existe o no
         Optional<Paciente> pacienteBuscado= pacienteService.buscarPorID(turno.getPaciente().getId());
         Optional<Odontologo> odontologoBuscado= odontologoService.buscarPorID(turno.getOdontologo().getId());
@@ -35,7 +36,7 @@ public class TurnoController {
             turno.setOdontologo(odontologoBuscado.get());
             return ResponseEntity.ok(turnoService.guardarTurno(turno));
         }else{
-            return ResponseEntity.badRequest().build();
+            throw new BadRequestException("No se puede guardar el turno porque el paciente u odontólogo no existe");
         }
     }
 

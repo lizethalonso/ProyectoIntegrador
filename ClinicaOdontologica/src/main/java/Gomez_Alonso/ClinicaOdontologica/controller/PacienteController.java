@@ -41,12 +41,12 @@ public class PacienteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> buscarPorPaciente(@PathVariable Long id){
+    public ResponseEntity<?> buscarPorPaciente(@PathVariable Long id) throws ResourceNotFoundException{
         Optional<Paciente> pacienteBuscado = pacienteService.buscarPorID(id);
         if (pacienteBuscado.isPresent()){
             return ResponseEntity.ok(pacienteBuscado);
         }else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente con ID " + id + " no encontrado");
+            throw new ResourceNotFoundException("Paciente con ID " + id + " no encontrado");
         }
     }
 

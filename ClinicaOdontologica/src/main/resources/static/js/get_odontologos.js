@@ -21,17 +21,17 @@ window.addEventListener('load', function () {
             //cada fila tendrá un id que luego nos permitirá borrar la fila si eliminamos el odontólogo
             var table = document.getElementById("odontologoTable");
             var odontologoRow =table.insertRow();
-            let tr_id = odontologo.id;
+            let tr_id = 'tr_' + odontologo.id;
             odontologoRow.id = tr_id;
 
             //por cada odontólogo creamos un boton delete que agregaremos en cada fila para poder eliminar la misma
             //dicho boton invocara a la funcion de java script deleteByKey que se encargará
             //de llamar a la API para eliminar un odontólogo
-            let deleteButton = '<button' +
-                                      ' id=' + '\"' + 'btn_delete_' + odontologo.id + '\"' +
-                                      ' type="button" onclick="deleteBy('+odontologo.id+')" class="btn btn-danger btn_delete">' +
-                                      '&times' +
-                                      '</button>';
+             let deleteButton = '<button' +
+                 ' id=' + '\"' + 'btn_delete_' + odontologo.id + '\"' +
+                 ' type="button" onclick="deleteBy('+odontologo.id+')" class="btn btn-danger btn_delete">' +
+                 '&times' +
+                 '</button>';
 
             //por cada odontólogo creamos un boton que muestra el id y que al hacerle clic invocará
             //a la función de java script findBy que se encargará de buscar el odontólogo que queremos
