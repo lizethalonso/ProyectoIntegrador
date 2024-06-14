@@ -28,8 +28,10 @@ public class TurnoController {
     @PostMapping
     public ResponseEntity<Turno> guardarTurno(@RequestBody Turno turno) throws BadRequestException {
         // Buscamos al paciente y al odontólgo, se usa optional obligatoriamente porque es un objeto q no sabe si existe o no
-        Optional<Paciente> pacienteBuscado= pacienteService.buscarPorID(turno.getPaciente().getId());
-        Optional<Odontologo> odontologoBuscado= odontologoService.buscarPorID(turno.getOdontologo().getId());
+        //Optional<Paciente> pacienteBuscado= pacienteService.buscarPorID(turno.getPaciente().getId());
+        //Optional<Odontologo> odontologoBuscado= odontologoService.buscarPorID(turno.getOdontologo().getId());
+        Optional<Paciente> pacienteBuscado = pacienteService.buscarPorCedula(turno.getPaciente().getCedula());
+        Optional<Odontologo> odontologoBuscado= odontologoService.buscarPorMatricula(turno.getOdontologo().getmatricula());
         if(pacienteBuscado.isPresent()&&odontologoBuscado.isPresent()){
             // Como si está, se asigna el paciente y odontolgo encontrados al campo id q ponemos en postman
             turno.setPaciente(pacienteBuscado.get()); // pacienteBuscado.get() con esto podemos extraer el objeto del optional de arriba
