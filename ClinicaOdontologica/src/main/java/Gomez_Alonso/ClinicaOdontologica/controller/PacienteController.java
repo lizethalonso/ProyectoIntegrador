@@ -1,6 +1,7 @@
 package Gomez_Alonso.ClinicaOdontologica.controller;
 
 import Gomez_Alonso.ClinicaOdontologica.entity.Paciente;
+import Gomez_Alonso.ClinicaOdontologica.exception.ResourceNotFoundException;
 import Gomez_Alonso.ClinicaOdontologica.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -83,12 +84,12 @@ public class PacienteController {
     }
 
     @DeleteMapping("/eliminar/{id}")
-    public ResponseEntity<String> eliminarPaciente(@PathVariable Long id){
+    public ResponseEntity<String> eliminarPaciente(@PathVariable Long id) throws ResourceNotFoundException {
         if (pacienteService.buscarPorID(id).isPresent()){
             pacienteService.eliminarPaciente(id);
             return ResponseEntity.ok().body("Paciente con ID " + id + " eliminado con éxito");
         }else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El paciente a eliminar no existe");
+            throw new ResourceNotFoundException("Paciente no encontrado para eliminar");
         }
     }
 
