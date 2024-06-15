@@ -31,7 +31,7 @@ public class Paciente {
     @Column
     private String email;
     // Relación con los turnos para eliminarlos si se elimina el paciente
-    @OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Turno> turnos = new HashSet<>();
 

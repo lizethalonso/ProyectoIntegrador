@@ -20,7 +20,7 @@ public class Odontologo {
     @Column
     private String apellido;
     // Relación con los turnos para eliminarlos si se elimina el odontologo
-    @OneToMany(mappedBy = "odontologo", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "odontologo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Turno> turnos = new HashSet<>();
 
