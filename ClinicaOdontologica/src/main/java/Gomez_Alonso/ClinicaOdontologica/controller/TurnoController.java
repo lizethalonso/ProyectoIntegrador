@@ -64,12 +64,14 @@ public class TurnoController {
         if(turnoBuscado.isPresent()){
             Turno turnoExistente = turnoBuscado.get(); // Lo guardamos en un objeto puro Turno, porque estamos seguras que si está
             // Buscamos el paciente y odontólogo
-            Optional<Paciente> pacienteOptional = pacienteService.buscarPorID(turno.getPaciente().getId());
-            Optional<Odontologo> odontologoOptional = odontologoService.buscarPorID(turno.getPaciente().getId());
-            if (pacienteOptional.isPresent() && odontologoOptional.isPresent()) {
+            //Optional<Paciente> pacienteOptional = pacienteService.buscarPorID(turno.getPaciente().getId());
+            //Optional<Odontologo> odontologoOptional = odontologoService.buscarPorID(turno.getPaciente().getId());
+            Optional<Paciente> pacienteBuscado = pacienteService.buscarPorCedula(turno.getPaciente().getCedula());
+            Optional<Odontologo> odontologoBuscado= odontologoService.buscarPorMatricula(turno.getOdontologo().getmatricula());
+            if (pacienteBuscado.isPresent() && odontologoBuscado.isPresent()) {
                 // Como si están, se asignan estos objetos 
-                turnoExistente.setPaciente(pacienteOptional.get());
-                turnoExistente.setOdontologo(odontologoOptional.get());
+                turnoExistente.setPaciente(pacienteBuscado.get());
+                turnoExistente.setOdontologo(odontologoBuscado.get());
                 // Se setean fecha y hora a actualizar
                 turnoExistente.setFecha(turno.getFecha());
                 turnoExistente.setHora(turno.getHora());

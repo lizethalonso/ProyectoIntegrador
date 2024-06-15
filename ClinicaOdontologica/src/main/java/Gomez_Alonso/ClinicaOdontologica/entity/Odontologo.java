@@ -1,6 +1,10 @@
 package Gomez_Alonso.ClinicaOdontologica.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -15,6 +19,10 @@ public class Odontologo {
     private String nombre;
     @Column
     private String apellido;
+    // Relación con los turnos para eliminarlos si se elimina el odontologo
+    @OneToMany(mappedBy = "odontologo", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private Set<Turno> turnos = new HashSet<>();
 
     public Odontologo(String matricula, String nombre, String apellido) {
         this.matricula = matricula;
@@ -50,6 +58,14 @@ public class Odontologo {
 
     public String getApellido() {
         return apellido;
+    }
+
+    public Set<Turno> getTurnos() {
+        return turnos;
+    }
+
+    public void setTurnos(Set<Turno> turnos) {
+        this.turnos = turnos;
     }
 
     @Override

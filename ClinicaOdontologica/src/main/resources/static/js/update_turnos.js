@@ -8,11 +8,14 @@ window.addEventListener('load', function () {
     formulario.addEventListener('submit', function (event) {
         let turnoId = document.querySelector('#turno_id').value;
 
+        //Hora para la API
+        const horaInput = document.querySelector('#hora').value;
+        const horaParaAPI = horaInput + ":00"; // Agregamos ":00" para completar el formato "HH:mm:ss"
         //creamos un JSON que tendrá los datos del turno
         //a diferencia de un turno nuevo en este caso enviamos el id
         //para poder identificarlo y modificarlo para no cargarlo como nuevo
         const formData = {
-            id: document.querySelector('#turno_id').value,
+            id: turnoId,
             paciente:{
                 cedula:document.querySelector('#cedula').value,
             },
@@ -20,7 +23,7 @@ window.addEventListener('load', function () {
                 matricula:document.querySelector('#matricula').value,
             },
             fecha: document.querySelector('#fecha').value,
-            hora: document.querySelector('#hora').value,
+            hora: horaParaAPI
         };
 
         //invocamos utilizando la función fetch la API turnos con el método PUT que modificará
@@ -55,7 +58,7 @@ function findBy(id) {
             document.querySelector('#cedula').value = turno.paciente.cedula;
             document.querySelector('#matricula').value = turno.odontologo.matricula;
             document.querySelector('#fecha').value = turno.fecha;
-            document.querySelector('#hora').value = turno.hora;
+            document.querySelector('#hora').value = turno.hora.slice(0, 5); // Mantener formato "HH:mm"
             //el formulario por default esta oculto y al editar se habilita
             document.querySelector('#div_turno_updating').style.display = "block";
         }).catch(error => {
