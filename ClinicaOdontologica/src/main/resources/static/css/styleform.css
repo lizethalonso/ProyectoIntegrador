@@ -1,0 +1,37 @@
+body {
+    background-image: url("../images/form.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    margin: 2vw;
+}
+
+.col-sm-7{
+    padding: 3vw 4vw 0;
+    background-color: whitesmoke;
+    border-radius:20px;
+}
+
+.col-sm-7 h3{
+    color: steelblue;
+}
+
+#add_new_odontologo{
+    padding: 2vw 0;
+}
+
+.btn_form{
+    background-color: steelblue;
+    color: whitesmoke;
+    padding: 0.8vw 1vw;
+    border: none;
+    border-radius: 10px;
+    margin: 1vw 0 3vw;
+
+}
