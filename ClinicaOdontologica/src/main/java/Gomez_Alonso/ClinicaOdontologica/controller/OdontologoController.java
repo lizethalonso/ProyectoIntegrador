@@ -1,6 +1,8 @@
 package Gomez_Alonso.ClinicaOdontologica.controller;
 
 import Gomez_Alonso.ClinicaOdontologica.entity.Odontologo;
+import Gomez_Alonso.ClinicaOdontologica.exception.BadRequestException;
+import Gomez_Alonso.ClinicaOdontologica.exception.NoContentException;
 import Gomez_Alonso.ClinicaOdontologica.exception.ResourceNotFoundException;
 import Gomez_Alonso.ClinicaOdontologica.service.OdontologoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,53 +21,54 @@ public class OdontologoController {
     private OdontologoService odontologoService;
 
     @PostMapping //--> nos permite persistir los datos que vienen desde la vista
-    public ResponseEntity<?> guardarOdontologo(@RequestBody Odontologo odontologo){
+    public ResponseEntity<?> guardarOdontologo(@RequestBody Odontologo odontologo) throws BadRequestException {
         Optional<Odontologo> odontologoExistente = odontologoService.buscarPorMatricula(odontologo.getmatricula());
         if (odontologoExistente.isPresent()){
-            return ResponseEntity.badRequest().body("Ya existe un odontólogo con matrícula: " + odontologo.getmatricula());
+            throw new BadRequestException("Ya existe un odontólogo con matrícula: " + odontologo.getmatricula());
         }else {
             return ResponseEntity.ok(odontologoService.guardarOdontologo(odontologo));
         }
     }
 
     @GetMapping
-    public ResponseEntity<List<Odontologo>> buscarTodos(){
+    public ResponseEntity<List<Odontologo>> buscarTodos() throws NoContentException {
         List<Odontologo> odontologos = odontologoService.buscarTodos();
         if (!odontologos.isEmpty()) {
             return ResponseEntity.ok(odontologos);
         } else {
-            return ResponseEntity.noContent().build();
+            throw new NoContentException("La lista de odontólogos está vacía");
+            //return ResponseEntity.noContent().build();
         }
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> buscarPorOdontologo(@PathVariable Long id){
+    public ResponseEntity<?> buscarPorOdontologo(@PathVariable Long id) throws ResourceNotFoundException {
         Optional<Odontologo> odontologoBuscado = odontologoService.buscarPorID(id);
         if (odontologoBuscado.isPresent()) {
             return ResponseEntity.ok(odontologoBuscado);
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Odontólogo con ID " + id + " no encontrado");
+            throw new ResourceNotFoundException("Odontólogo con ID " + id + " no encontrado");
         }
     }
 
     @GetMapping("/matricula/{matricula}")
-    public ResponseEntity<?> buscarPorMatricula(@PathVariable String matricula){
+    public ResponseEntity<?> buscarPorMatricula(@PathVariable String matricula) throws ResourceNotFoundException{
         Optional<Odontologo> odontologoBuscado = odontologoService.buscarPorMatricula(matricula);
         if (odontologoBuscado.isPresent()) {
             return ResponseEntity.ok(odontologoBuscado);
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Odontólogo con " + matricula + " no encontrado");
+            throw new ResourceNotFoundException("Odontólogo con " + matricula + " no encontrado");
         }
     }
 
     @PutMapping
-    public ResponseEntity<?> actualizarOdontologo(@RequestBody Odontologo odontologo){
+    public ResponseEntity<?> actualizarOdontologo(@RequestBody Odontologo odontologo) throws BadRequestException {
         Optional<Odontologo> odontologoBuscado= odontologoService.buscarPorID(odontologo.getId());
         if(odontologoBuscado.isPresent()){
             odontologoService.actualizarOdontologo(odontologo);
             return ResponseEntity.ok().body("Odontólogo actualizado con éxito");
         }else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Odontólogo con ID " + odontologo.getId() +
+            throw new BadRequestException("Odontólogo con ID " + odontologo.getId() +
                     " no se encuentra registrado para realizar la actualización");
         }
     }

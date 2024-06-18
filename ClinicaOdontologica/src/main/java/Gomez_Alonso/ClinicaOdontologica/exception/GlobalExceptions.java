@@ -18,5 +18,9 @@ public class GlobalExceptions {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Mensaje: " + brex.getMessage());
     }
 
+    @ExceptionHandler({NoContentException.class})
+    public ResponseEntity<String> tratamientoNoContentException(NoContentException ncex) {
+        return ResponseEntity.status((HttpStatus.NO_CONTENT)).body("Mensaje: " + ncex.getMessage());
+    }
 
 }

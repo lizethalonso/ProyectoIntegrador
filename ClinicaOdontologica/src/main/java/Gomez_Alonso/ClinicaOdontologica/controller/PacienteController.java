@@ -1,6 +1,8 @@
 package Gomez_Alonso.ClinicaOdontologica.controller;
 
 import Gomez_Alonso.ClinicaOdontologica.entity.Paciente;
+import Gomez_Alonso.ClinicaOdontologica.exception.BadRequestException;
+import Gomez_Alonso.ClinicaOdontologica.exception.NoContentException;
 import Gomez_Alonso.ClinicaOdontologica.exception.ResourceNotFoundException;
 import Gomez_Alonso.ClinicaOdontologica.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,22 +23,22 @@ public class PacienteController {
     private PacienteService pacienteService;
 
     @PostMapping //--> nos permite persistir los datos que vienen desde la vista
-    public ResponseEntity<?> guardarPaciente(@RequestBody Paciente paciente){
+    public ResponseEntity<?> guardarPaciente(@RequestBody Paciente paciente) throws BadRequestException {
         Optional<Paciente> pacienteExistente = pacienteService.buscarPorCedula(paciente.getCedula());
         if (pacienteExistente.isPresent()){
-            return ResponseEntity.badRequest().body("Ya existe un paciente con cédula " + paciente.getCedula());
+            throw new BadRequestException("Ya existe un paciente con cédula " + paciente.getCedula());
         }else {
             return ResponseEntity.ok(pacienteService.guardarPaciente(paciente));
         }
     }
 
     @GetMapping
-    public ResponseEntity<List<Paciente>> buscarTodos(){
+    public ResponseEntity<List<Paciente>> buscarTodos() throws NoContentException {
         List<Paciente> pacientes = pacienteService.buscarTodos();
         if (!pacientes.isEmpty()) {
             return ResponseEntity.ok(pacientes);
         } else {
-            return ResponseEntity.noContent().build();
+            throw new NoContentException("La lista de pacientes está vacía");
         }
     }
 
@@ -51,33 +53,34 @@ public class PacienteController {
     }
 
     @GetMapping("/email/{email}")
-    public ResponseEntity<?> buscarPorEmail(@PathVariable String email){
+    public ResponseEntity<?> buscarPorEmail(@PathVariable String email) throws ResourceNotFoundException{
         Optional<Paciente> pacienteBuscado = pacienteService.buscarPorEmail(email);
         if (pacienteBuscado.isPresent()){
             return ResponseEntity.ok(pacienteBuscado);
         }else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente con email " + email + " no encontrado");
+            throw new ResourceNotFoundException("Paciente con email " + email + " no encontrado");
+            //return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente con email " + email + " no encontrado");
         }
     }
 
     @GetMapping("/cedula/{cedula}")
-    public ResponseEntity<?> buscarPorCedula(@PathVariable String cedula){
+    public ResponseEntity<?> buscarPorCedula(@PathVariable String cedula) throws ResourceNotFoundException{
         Optional<Paciente> pacienteBuscado = pacienteService.buscarPorCedula(cedula);
         if (pacienteBuscado.isPresent()){
             return ResponseEntity.ok(pacienteBuscado);
         }else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente con cedula " + cedula + " no encontrado");
+            throw new ResourceNotFoundException("Paciente con cedula " + cedula + " no encontrado");
         }
     }
 
     @PutMapping
-    public ResponseEntity<String> actualizarPaciente(@RequestBody Paciente paciente){
+    public ResponseEntity<String> actualizarPaciente(@RequestBody Paciente paciente) throws BadRequestException {
         Optional<Paciente> pacienteBuscado= pacienteService.buscarPorID(paciente.getId());
         if(pacienteBuscado.isPresent()){
             pacienteService.actualizarPaciente(paciente);
             return ResponseEntity.ok("Paciente actualizado con éxito");
         }else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El paciente con ID " + paciente.getId() +
+            throw new BadRequestException("El paciente con ID " + paciente.getId() +
                     " no se encuentra registrado para realizar la actualización");
             //return ResponseEntity.notFound().build();
         }

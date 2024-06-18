@@ -4,6 +4,8 @@ import Gomez_Alonso.ClinicaOdontologica.entity.Odontologo;
 import Gomez_Alonso.ClinicaOdontologica.entity.Paciente;
 import Gomez_Alonso.ClinicaOdontologica.entity.Turno;
 import Gomez_Alonso.ClinicaOdontologica.exception.BadRequestException;
+import Gomez_Alonso.ClinicaOdontologica.exception.NoContentException;
+import Gomez_Alonso.ClinicaOdontologica.exception.ResourceNotFoundException;
 import Gomez_Alonso.ClinicaOdontologica.service.OdontologoService;
 import Gomez_Alonso.ClinicaOdontologica.service.PacienteService;
 import Gomez_Alonso.ClinicaOdontologica.service.TurnoService;
@@ -43,22 +45,27 @@ public class TurnoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> buscarPorId(@PathVariable Long id){
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) throws ResourceNotFoundException {
         Optional<Turno> turnoBuscado = turnoService.buscarPorId(id);
         if (turnoBuscado.isPresent()){
             return ResponseEntity.ok(turnoBuscado);
         }else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Turno con ID " + id + " no encontrado");
+            throw new ResourceNotFoundException("Turno con ID " + id + " no encontrado");
         }
     }
 
     @GetMapping
-    public ResponseEntity<List<Turno>> buscarTodos(){
-        return ResponseEntity.ok(turnoService.buscarTodos());
+    public ResponseEntity<List<Turno>> buscarTodos() throws NoContentException {
+        List<Turno> turnosBuscados = turnoService.buscarTodos();
+        if (!turnosBuscados.isEmpty()) {
+            return ResponseEntity.ok(turnosBuscados);
+        } else {
+            throw new NoContentException("La lista de turnos está vacía");
+        }
     }
 
     @PutMapping
-    public ResponseEntity<?>actualizarTurno(@RequestBody Turno turno){
+    public ResponseEntity<?>actualizarTurno(@RequestBody Turno turno) throws BadRequestException {
         // Buscamos el turno para ver si existe
         Optional<Turno> turnoBuscado= turnoService.buscarPorId(turno.getId());
         if(turnoBuscado.isPresent()){
@@ -78,22 +85,23 @@ public class TurnoController {
                 turnoService.actualizarTurno(turnoExistente);
                 return ResponseEntity.ok("Turno actualizado con éxito");
             }else {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No se encontró el Paciente u Odontólogo asociado al Turno que desea actualizar");
+                throw new BadRequestException("No se encontró el Paciente u Odontólogo asociado al Turno que desea actualizar");
+                //return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No se encontró el Paciente u Odontólogo asociado al Turno que desea actualizar");
             }
         }else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El turno con ID " + turno.getId() +
+            throw new BadRequestException("El turno con ID " + turno.getId() +
                     " no se encuentra registrado para realizar la actualización");
         }
     }
 
     @DeleteMapping("/eliminar/{id}")
-    public ResponseEntity<String> eliminarTurno(@PathVariable Long id){
+    public ResponseEntity<String> eliminarTurno(@PathVariable Long id) throws ResourceNotFoundException{
         Optional<Turno> turnoBuscado= turnoService.buscarPorId(id);
         if (turnoBuscado.isPresent()) {
             turnoService.eliminarTurno(id);
             return ResponseEntity.ok().body("Turno con ID " + id + " eliminado con éxito");
         }else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se puede eliminar un turno que no existe");
+            throw new ResourceNotFoundException("No se puede eliminar un turno que no existe");
         }
     }
 }
