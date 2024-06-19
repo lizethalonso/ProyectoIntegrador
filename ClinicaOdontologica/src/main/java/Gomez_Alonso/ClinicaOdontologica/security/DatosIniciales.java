@@ -20,7 +20,7 @@ public class DatosIniciales implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         String passSinCifrar= "admin";
         String passCifrado=  passwordEncoder.encode(passSinCifrar);
-        Usuario usuario= new Usuario("jorgito","jpereryradh","admin@admin.com",passCifrado, UsuarioRole.ROLE_USER);
+        Usuario usuario= new Usuario("jorgito","jpereryradh","admin@admin.com",passCifrado, UsuarioRole.ROLE_ADMIN);
         usuarioRepository.save(usuario);
     }
 }

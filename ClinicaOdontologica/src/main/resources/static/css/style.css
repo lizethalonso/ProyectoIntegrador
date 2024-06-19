@@ -6,7 +6,7 @@ body {
 }
 
 header{
-    background: steelblue;
+    background: #115286;
 }
 
 .navbar{
@@ -30,9 +30,7 @@ h2{
 }
 
 .carousel-item a{
-    color: steelblue;
-    text-shadow: 5px 5px 5px lightgrey;
-    font-size: 1.5vw;
+    text-decoration: none;
 }
 
 .carousel-item button {
@@ -40,6 +38,15 @@ h2{
     border-radius: 20px;
     padding: 1vw 1.5vw;
     margin: 1vw 0 2vw 0;
+    box-shadow: 2px 2px 2px dimgrey;
+    color: #115286;
+    font-size: 1.5vw;
+}
+
+.carousel-item button:hover  {
+    transition-duration: 1s;
+    background-color: #115286;
+    color: whitesmoke;
 }
 
 .carousel-item button a{
@@ -47,8 +54,8 @@ h2{
 }
 
 footer{
-    background-color: steelblue;
-    padding: 20px;
+    background-color: #115286;
+    padding: 1.2vw 0 0.5vw;
     text-align: center;
     color: white;
     margin-top: auto;

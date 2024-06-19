@@ -1,0 +1,46 @@
+body {
+    background-image: url("../images/form.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container_list{
+    margin: 4vw 6vw 3vw;
+    background-color: white;
+    padding: 3vw 2vw 3vw 5vw;
+    border-radius: 10px;
+}
+
+h1{
+    color: #115286;
+    padding: 1vw 0;
+    font-size: 35px;
+}
+
+.container_list tr{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.container_list th{
+    color: #115286;
+    background-color: transparent;
+    text-align: center;
+    vertical-align: middle;
+    padding: 1.5vw 1.5vw
+}
+
+.col-sm-6{
+    display: none
+}
+
+#odontologoTable{
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+}
+
+
+
+
