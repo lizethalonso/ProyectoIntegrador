@@ -25,7 +25,7 @@ window.addEventListener('load', function () {
                     //de llamar a la API para eliminar un turno
                     let deleteButton = '<button' +
                         ' id=' + '\"' + 'btn_delete_' + turno.id + '\"' +
-                        ' type="button" onclick="deleteBy('+turno.id+')" class="btn btn-danger btn_delete">' +
+                        ' type="button" onclick="deleteBy('+turno.id+')" class="btn btn btn_delete" style="background-color:#9D1919; color:white">' +
                         '&times' +
                         '</button>';
 
@@ -34,7 +34,7 @@ window.addEventListener('load', function () {
                     //modificar y mostrar los datos de la misma en un formulario.
                     let updateButton = '<button' +
                         ' id=' + '\"' + 'btn_id_' + turno.id + '\"' +
-                        ' type="button" onclick="findBy('+turno.id+')" class="btn btn-info btn_id">' +
+                        ' type="button" onclick="findBy('+turno.id+')" class="btn btn btn_id" style="background-color:#0C66AD; color:white">' +
                         turno.id +
                         '</button>';
 

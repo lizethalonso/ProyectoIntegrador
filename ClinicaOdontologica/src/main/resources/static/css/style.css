@@ -10,12 +10,28 @@ header{
 }
 
 .navbar{
-    text-indent: 30pt;
+    text-indent: 20pt;
 }
 
 img.logo{
     width: 15vw;
     padding: 3% 0%
+}
+
+.btn_logout{
+    border: 1px solid #115286;
+    border-radius: 20px;
+    padding: 0.5vw 1.5vw;
+    color: #115286;
+    text-align: center;
+    margin-left: 50px;
+}
+
+.btn_logout:hover  {
+    transition-duration: 1s;
+    background-color: #115286;
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
 }
 
 .carrusel{
@@ -26,7 +42,7 @@ img.logo{
 h2{
     font-size: 4.5vw;
     color: whitesmoke;
-    text-shadow: 2px 4px 4px dimgrey;
+    text-shadow: 2px 2px 2px dimgrey;
 }
 
 .carousel-item a{
@@ -34,11 +50,11 @@ h2{
 }
 
 .carousel-item button {
-    border: none;
+    border: 1px solid whitesmoke;
     border-radius: 20px;
-    padding: 1vw 1.5vw;
+    box-shadow:1px 1px 1px dimgrey;
+    padding: 0.7vw 1.5vw;
     margin: 1vw 0 2vw 0;
-    box-shadow: 2px 2px 2px dimgrey;
     color: #115286;
     font-size: 1.5vw;
 }
@@ -47,6 +63,7 @@ h2{
     transition-duration: 1s;
     background-color: #115286;
     color: whitesmoke;
+    border-color: #115286;
 }
 
 .carousel-item button a{
@@ -55,7 +72,7 @@ h2{
 
 footer{
     background-color: #115286;
-    padding: 1.2vw 0 0.5vw;
+    padding: 1.5vw 0 0.5vw;
     text-align: center;
     color: white;
     margin-top: auto;

@@ -29,7 +29,7 @@ window.addEventListener('load', function () {
             //de llamar a la API para eliminar un odontólogo
              let deleteButton = '<button' +
                  ' id=' + '\"' + 'btn_delete_' + odontologo.id + '\"' +
-                 ' type="button" onclick="deleteBy('+odontologo.id+')" class="btn btn-danger btn_delete">' +
+                 ' type="button" onclick="deleteBy('+odontologo.id+')" class="btn btn btn_delete" style="background-color:#9D1919; color:white">' +
                  '&times' +
                  '</button>';
 
@@ -38,7 +38,7 @@ window.addEventListener('load', function () {
             //modificar y mostrar los datos de la misma en un formulario.
             let updateButton = '<button' +
                                       ' id=' + '\"' + 'btn_id_' + odontologo.id + '\"' +
-                                      ' type="button" onclick="findBy('+odontologo.id+')" class="btn btn-info btn_id">' +
+                                      ' type="button" onclick="findBy('+odontologo.id+')" class="btn btn btn_id" style="background-color:#0C66AD; color:white">' +
                                       odontologo.id +
                                       '</button>';
 
@@ -51,9 +51,7 @@ window.addEventListener('load', function () {
                     '<td class=\"td_nombre\">' + odontologo.nombre.toUpperCase() + '</td>' +
                     '<td class=\"td_apellido\">' + odontologo.apellido.toUpperCase() + '</td>' +
                     '<td>' + deleteButton + '</td>';
-
         };
-
     })
     })
 

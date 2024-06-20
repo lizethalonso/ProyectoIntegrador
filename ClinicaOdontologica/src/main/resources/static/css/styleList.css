@@ -41,6 +41,19 @@ h1{
     border: 1px solid #ddd;
 }
 
+.form-group label {
+    display: block;
+}
+
+ .form-group select {
+     padding: 7.5px;
+     color: #4D4D4D;
+     border: 1px solid #E6E6E6;
+     border-radius: 4px;
+     transition: border-color 0.3s ease;
+     width: 100%;
+ }
+
 
 
 

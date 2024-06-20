@@ -36,6 +36,19 @@ form-control::placeholder {
     border: 2px solid #115286;
 }
 
+.form-group label {
+    display: block;
+}
+
+ .form-group select {
+     padding: 7.5px;
+     color: #545454;
+     border: 1px solid #115286;
+     border-radius: 4px;
+     transition: border-color 0.3s ease;
+     width: 100%;
+ }
+
 #add_new_odontologo{
     padding: 2vw 0;
 }
