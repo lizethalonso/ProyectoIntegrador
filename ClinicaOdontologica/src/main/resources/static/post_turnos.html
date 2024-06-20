@@ -58,6 +58,9 @@
                     </ul>
                 </div>
             </div>
+            <form action="/logout" method="post">
+                <button type="submit">Logout</button>
+            </form>
         </nav>
     </div>
 </header>
@@ -67,17 +70,24 @@
             <h3>Agregar Turno</h3>
             <form id="add_new_turno">
                 <div class="form-group">
-                    <label class="control-label" for="cedula">Cédula:</label>
+                    <label class="control-label" for="cedula">Cédula del paciente:</label>
                     <input type="text" class="form-control" id="cedula"
                            placeholder="Cédula del paciente:"
                            name="cedula" required></input>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="control-label" for="matricula">Matricula:</label>
                     <input type="text" class="form-control" id="matricula"
                            placeholder="Matrícula del odontologo:"
                            name="matricula" required></input>
+                </div-->
+                <div class="form-group">
+                    <label for="odontologo">Nombre del odontólogo:</label>
+                    <select id="odontologo" name="odontologo" required>
+                        <option value="" class="form-control">Seleccione una opción</option>
+                    </select>
                 </div>
+
                 <div class="form-group">
                     <label class="control-label" for="fecha">Fecha:</label>
                     <input type="date" class="form-control" id="fecha"

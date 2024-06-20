@@ -60,6 +60,9 @@
                     </ul>
                 </div>
             </div>
+            <form action="/logout" method="post">
+                <button type="submit">Logout</button>
+            </form>
         </nav>
     </div>
 </header>
@@ -71,8 +74,8 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Paciente</th>
-                    <th>Odontologo</th>
+                    <th>Cédula del paciente</th>
+                    <th>Matrícula del odontólogo</th>
                     <th>Fecha</th>
                     <th>Hora</th>
                 </tr>
@@ -90,12 +93,14 @@
                     <input type="text" class="form-control" id="turno_id" readonly>
                 </div>
                 <div class="form-group">
-                    <label >Cédula:</label>
+                    <label >Cédula del paciente:</label>
                     <input type="text" class="form-control" placeholder="Cédula del paciente" id="cedula">
                 </div>
                 <div class="form-group">
-                    <label >Matrícula:</label>
-                    <input type="text" class="form-control" placeholder="Matrícula del odontologo" id="matricula">
+                    <label for="odontologo">Seleccione el odontólogo:</label>
+                    <select id="odontologo" name="odontologo" required>
+                        <option value="">Seleccione un odontólogo</option>
+                    </select><br><br>
                 </div>
                 <div class="form-group">
                     <label >Fecha</label>

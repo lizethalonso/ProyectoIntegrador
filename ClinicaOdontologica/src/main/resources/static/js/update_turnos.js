@@ -20,7 +20,7 @@ window.addEventListener('load', function () {
                 cedula:document.querySelector('#cedula').value,
             },
             odontologo:{
-                matricula:document.querySelector('#matricula').value,
+                matricula:document.querySelector('#odontologo').value,
             },
             fecha: document.querySelector('#fecha').value,
             hora: horaParaAPI
@@ -56,12 +56,41 @@ function findBy(id) {
             let turno = data;
             document.querySelector('#turno_id').value = turno.id;
             document.querySelector('#cedula').value = turno.paciente.cedula;
-            document.querySelector('#matricula').value = turno.odontologo.matricula;
+            //document.querySelector('#matricula').value = turno.odontologo.matricula;
             document.querySelector('#fecha').value = turno.fecha;
             document.querySelector('#hora').value = turno.hora.slice(0, 5); // Mantener formato "HH:mm"
             //el formulario por default esta oculto y al editar se habilita
             document.querySelector('#div_turno_updating').style.display = "block";
-        }).catch(error => {
-        alert("Error: " + error);
-    })
+
+            // Fetch odontologos from the API and populate the dropdown
+            fetch('/odontologos')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(odontologos => {
+                    const odontologoSelect = document.querySelector('#odontologo');
+                    odontologoSelect.innerHTML = ''; // Limpiamos opciones previas
+                    odontologos.forEach(odontologo => {
+                        const option = document.createElement('option');
+                        option.value = odontologo.matricula;
+                        option.textContent = `${odontologo.nombre} ${odontologo.apellido}`;
+                        if (odontologo.matricula === turno.odontologo.matricula) {
+                            option.selected = true; // Seleccionamos el odontólogo del turno
+                        }
+                        odontologoSelect.appendChild(option);
+                    });
+                    // Mostrar el formulario de actualización
+                    document.querySelector('#div_turno_updating').style.display = "block";
+                })
+                .catch(error => {
+                    alert("Error fetching odontologos: " + error);
+                });
+        })
+        .catch(error => {
+            alert("Error: " + error);
+        });
+
 }

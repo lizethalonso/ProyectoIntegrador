@@ -1,4 +1,22 @@
 window.addEventListener('load', function () {
+    // Fetch odontologos from the API and populate the dropdown
+    fetch('/odontologos')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(odontologos => {
+            const odontologoSelect = document.querySelector('#odontologo');
+            odontologos.forEach(odontologo => {
+                const option = document.createElement('option');
+                option.value = odontologo.matricula;
+                option.textContent = `${odontologo.nombre} ${odontologo.apellido}`;
+                odontologoSelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error fetching odontologos:', error));
 
     //Al cargar la pagina buscamos y obtenemos el formulario donde estarán
     //los datos que se cargará del nuevo turno
@@ -17,7 +35,7 @@ window.addEventListener('load', function () {
                 cedula: document.querySelector('#cedula').value,
             },
             odontologo:{
-                matricula: document.querySelector('#matricula').value,
+                matricula: document.querySelector('#odontologo').value,
             },
             fecha: document.querySelector('#fecha').value,
             hora: horaParaAPI
@@ -63,7 +81,7 @@ window.addEventListener('load', function () {
 
     function resetUploadForm(){
         document.querySelector('#cedula').value = "";
-        document.querySelector('#matricula').value = "";
+        document.querySelector('#odontologo').value = "";
         document.querySelector('#fecha').value = "";
         document.querySelector('#hora').value = "";
     }
