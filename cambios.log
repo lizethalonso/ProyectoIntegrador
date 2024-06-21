@@ -1,0 +1,2 @@
+[2024-06-21 15:14:00] [ ERROR] [PacienteController:31] Ya existe un paciente registrado con la cédula proporcionada
+[2024-06-21 15:43:56] [ ERROR] [OdontologoController:29] Ya existe un odontólogo registrado con la matrícula proporcionada

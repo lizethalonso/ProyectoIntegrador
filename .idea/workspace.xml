@@ -6,17 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4d333dde-19e6-4959-8589-9742c13b9fc1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/security/DatosIniciales.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/security/DatosIniciales.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/security/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/get_odontologos.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/get_odontologos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/get_pacientes.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/get_pacientes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/get_turnos.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/get_turnos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/post_turnos.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/post_turnos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/update_turnos.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/js/update_turnos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/post_odontologos.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/post_odontologos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/post_pacientes.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/post_pacientes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/post_turnos.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/resources/static/post_turnos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/OdontologoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/OdontologoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/PacienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/PacienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/TurnoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica/controller/TurnoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/test/java/Gomez_Alonso/ClinicaOdontologica/Service/OdontologoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClinicaOdontologica/src/test/java/Gomez_Alonso/ClinicaOdontologica/Service/OdontologoServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClinicaOdontologica/src/test/java/Gomez_Alonso/ClinicaOdontologica/dao/DomicilioDAOH2Test.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,25 +39,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.clinicaOdontologicaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Documentos/Personal/Clases/Programación/Digital House/B5/Backend/ProyectoIntegrador/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.DomicilioDAOH2Test.testGuardar.executor": "Run",
+    "JUnit.OdontologoServiceTest.executor": "Run",
+    "JUnit.OdontologosIntegracionTest.executor": "Run",
+    "JUnit.PacienteServiceTest.executor": "Run",
+    "JUnit.TurnoServiceTest.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.clinicaOdontologicaApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Documentos/Personal/Clases/Programación/Digital House/B5/Backend/ProyectoIntegrador/ClinicaOdontologica/src/main/java/Gomez_Alonso/ClinicaOdontologica",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documentos\Personal\Clases\Programación\Digital House\B5\Backend\ProyectoIntegrador\ClinicaOdontologica\src\main\java\Gomez_Alonso\ClinicaOdontologica" />
@@ -74,7 +73,83 @@
       <recent name="Gomez_Alonso.ClinicaOdontologica.repository" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.clinicaOdontologicaApplication">
+    <configuration name="DomicilioDAOH2Test.testGuardar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ClinicaOdontologica" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Gomez_Alonso.ClinicaOdontologica.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Gomez_Alonso.ClinicaOdontologica.dao" />
+      <option name="MAIN_CLASS_NAME" value="Gomez_Alonso.ClinicaOdontologica.dao.DomicilioDAOH2Test" />
+      <option name="METHOD_NAME" value="testGuardar" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OdontologoServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ClinicaOdontologica" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Gomez_Alonso.ClinicaOdontologica.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Gomez_Alonso.ClinicaOdontologica.Service" />
+      <option name="MAIN_CLASS_NAME" value="Gomez_Alonso.ClinicaOdontologica.Service.OdontologoServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OdontologosIntegracionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ClinicaOdontologica" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Gomez_Alonso.ClinicaOdontologica.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Gomez_Alonso.ClinicaOdontologica" />
+      <option name="MAIN_CLASS_NAME" value="Gomez_Alonso.ClinicaOdontologica.OdontologosIntegracionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PacienteServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ClinicaOdontologica" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Gomez_Alonso.ClinicaOdontologica.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Gomez_Alonso.ClinicaOdontologica.Service" />
+      <option name="MAIN_CLASS_NAME" value="Gomez_Alonso.ClinicaOdontologica.Service.PacienteServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TurnoServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ClinicaOdontologica" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Gomez_Alonso.ClinicaOdontologica.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Gomez_Alonso.ClinicaOdontologica.Service" />
+      <option name="MAIN_CLASS_NAME" value="Gomez_Alonso.ClinicaOdontologica.Service.TurnoServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="clinicaOdontologicaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ClinicaOdontologica" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="Gomez_Alonso.ClinicaOdontologica.clinicaOdontologicaApplication" />
@@ -82,6 +157,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.OdontologosIntegracionTest" />
+        <item itemvalue="JUnit.TurnoServiceTest" />
+        <item itemvalue="JUnit.PacienteServiceTest" />
+        <item itemvalue="JUnit.OdontologoServiceTest" />
+        <item itemvalue="JUnit.DomicilioDAOH2Test.testGuardar" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -116,6 +200,7 @@
       <workItem from="1718744374916" duration="338000" />
       <workItem from="1718744745227" duration="11693000" />
       <workItem from="1718838721905" duration="10786000" />
+      <workItem from="1718998252913" duration="4145000" />
     </task>
     <servers />
   </component>

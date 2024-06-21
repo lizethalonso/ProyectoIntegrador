@@ -5,6 +5,7 @@ import Gomez_Alonso.ClinicaOdontologica.exception.BadRequestException;
 import Gomez_Alonso.ClinicaOdontologica.exception.NoContentException;
 import Gomez_Alonso.ClinicaOdontologica.exception.ResourceNotFoundException;
 import Gomez_Alonso.ClinicaOdontologica.service.PacienteService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,11 +22,13 @@ import java.util.Optional;
 public class PacienteController {
     @Autowired
     private PacienteService pacienteService;
+    private static final Logger logger = Logger.getLogger(PacienteController.class);
 
     @PostMapping //--> nos permite persistir los datos que vienen desde la vista
     public ResponseEntity<?> guardarPaciente(@RequestBody Paciente paciente) throws BadRequestException {
         Optional<Paciente> pacienteExistente = pacienteService.buscarPorCedula(paciente.getCedula());
         if (pacienteExistente.isPresent()){
+            logger.error("Ya existe un paciente registrado con la cédula proporcionada");
             throw new BadRequestException("Ya existe un paciente con cédula " + paciente.getCedula());
         }else {
             return ResponseEntity.ok(pacienteService.guardarPaciente(paciente));
@@ -38,6 +41,7 @@ public class PacienteController {
         if (!pacientes.isEmpty()) {
             return ResponseEntity.ok(pacientes);
         } else {
+            logger.error("La lista de pacientes está vacía");
             throw new NoContentException("La lista de pacientes está vacía");
         }
     }
@@ -48,6 +52,7 @@ public class PacienteController {
         if (pacienteBuscado.isPresent()){
             return ResponseEntity.ok(pacienteBuscado);
         }else {
+            logger.error("Paciente no encontrado");
             throw new ResourceNotFoundException("Paciente con ID " + id + " no encontrado");
         }
     }
@@ -58,6 +63,7 @@ public class PacienteController {
         if (pacienteBuscado.isPresent()){
             return ResponseEntity.ok(pacienteBuscado);
         }else {
+            logger.error("Paciente no encontrado");
             throw new ResourceNotFoundException("Paciente con email " + email + " no encontrado");
             //return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente con email " + email + " no encontrado");
         }
@@ -69,6 +75,7 @@ public class PacienteController {
         if (pacienteBuscado.isPresent()){
             return ResponseEntity.ok(pacienteBuscado);
         }else {
+            logger.error("Paciente no encontrado");
             throw new ResourceNotFoundException("Paciente con cedula " + cedula + " no encontrado");
         }
     }
@@ -80,6 +87,7 @@ public class PacienteController {
             pacienteService.actualizarPaciente(paciente);
             return ResponseEntity.ok("Paciente actualizado con éxito");
         }else{
+            logger.error("Paciente no encontrado para actualizar");
             throw new BadRequestException("El paciente con ID " + paciente.getId() +
                     " no se encuentra registrado para realizar la actualización");
             //return ResponseEntity.notFound().build();
@@ -92,6 +100,7 @@ public class PacienteController {
             pacienteService.eliminarPaciente(id);
             return ResponseEntity.ok().body("Paciente con ID " + id + " eliminado con éxito");
         }else{
+            logger.error("Paciente no encontrado");
             throw new ResourceNotFoundException("Paciente no encontrado para eliminar");
         }
     }

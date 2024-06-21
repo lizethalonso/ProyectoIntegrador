@@ -9,6 +9,7 @@ import Gomez_Alonso.ClinicaOdontologica.exception.ResourceNotFoundException;
 import Gomez_Alonso.ClinicaOdontologica.service.OdontologoService;
 import Gomez_Alonso.ClinicaOdontologica.service.PacienteService;
 import Gomez_Alonso.ClinicaOdontologica.service.TurnoService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,8 @@ public class TurnoController {
     @Autowired
     private OdontologoService odontologoService;
 
+    private static final Logger logger = Logger.getLogger(PacienteController.class);
+
     @PostMapping
     public ResponseEntity<Turno> guardarTurno(@RequestBody Turno turno) throws BadRequestException {
         // Buscamos al paciente y al odontólgo, se usa optional obligatoriamente porque es un objeto q no sabe si existe o no
@@ -40,6 +43,7 @@ public class TurnoController {
             turno.setOdontologo(odontologoBuscado.get());
             return ResponseEntity.ok(turnoService.guardarTurno(turno));
         }else{
+            logger.error("No se puede guardar el turno porque el paciente u odontólogo no existe");
             throw new BadRequestException("No se puede guardar el turno porque el paciente u odontólogo no existe");
         }
     }
@@ -50,6 +54,7 @@ public class TurnoController {
         if (turnoBuscado.isPresent()){
             return ResponseEntity.ok(turnoBuscado);
         }else {
+            logger.error("Turno no encontrado");
             throw new ResourceNotFoundException("Turno con ID " + id + " no encontrado");
         }
     }
@@ -60,6 +65,7 @@ public class TurnoController {
         if (!turnosBuscados.isEmpty()) {
             return ResponseEntity.ok(turnosBuscados);
         } else {
+            logger.error("La lista de turnos está vacía");
             throw new NoContentException("La lista de turnos está vacía");
         }
     }
@@ -85,10 +91,12 @@ public class TurnoController {
                 turnoService.actualizarTurno(turnoExistente);
                 return ResponseEntity.ok("Turno actualizado con éxito");
             }else {
+                logger.error("No se encontró el Paciente u Odontólogo asociado al Turno que desea actualizar");
                 throw new BadRequestException("No se encontró el Paciente u Odontólogo asociado al Turno que desea actualizar");
                 //return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No se encontró el Paciente u Odontólogo asociado al Turno que desea actualizar");
             }
         }else {
+            logger.error("Turno no encontrado para realizar la actualización");
             throw new BadRequestException("El turno con ID " + turno.getId() +
                     " no se encuentra registrado para realizar la actualización");
         }
@@ -101,6 +109,7 @@ public class TurnoController {
             turnoService.eliminarTurno(id);
             return ResponseEntity.ok().body("Turno con ID " + id + " eliminado con éxito");
         }else {
+            logger.error("No se puede eliminar un turno que no existe");
             throw new ResourceNotFoundException("No se puede eliminar un turno que no existe");
         }
     }

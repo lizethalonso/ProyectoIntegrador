@@ -5,6 +5,7 @@ import Gomez_Alonso.ClinicaOdontologica.exception.BadRequestException;
 import Gomez_Alonso.ClinicaOdontologica.exception.NoContentException;
 import Gomez_Alonso.ClinicaOdontologica.exception.ResourceNotFoundException;
 import Gomez_Alonso.ClinicaOdontologica.service.OdontologoService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +20,13 @@ import java.util.Optional;
 public class OdontologoController {
     @Autowired
     private OdontologoService odontologoService;
+    private static final Logger logger = Logger.getLogger(OdontologoController.class);
 
     @PostMapping //--> nos permite persistir los datos que vienen desde la vista
     public ResponseEntity<?> guardarOdontologo(@RequestBody Odontologo odontologo) throws BadRequestException {
         Optional<Odontologo> odontologoExistente = odontologoService.buscarPorMatricula(odontologo.getmatricula());
         if (odontologoExistente.isPresent()){
+            logger.error("Ya existe un odontólogo registrado con la matrícula proporcionada");
             throw new BadRequestException("Ya existe un odontólogo con matrícula: " + odontologo.getmatricula());
         }else {
             return ResponseEntity.ok(odontologoService.guardarOdontologo(odontologo));
@@ -36,6 +39,7 @@ public class OdontologoController {
         if (!odontologos.isEmpty()) {
             return ResponseEntity.ok(odontologos);
         } else {
+            logger.error("La lista de odontólogos está vacía");
             throw new NoContentException("La lista de odontólogos está vacía");
             //return ResponseEntity.noContent().build();
         }
@@ -47,6 +51,7 @@ public class OdontologoController {
         if (odontologoBuscado.isPresent()) {
             return ResponseEntity.ok(odontologoBuscado);
         } else {
+            logger.error("Odontólogo no existe");
             throw new ResourceNotFoundException("Odontólogo con ID " + id + " no encontrado");
         }
     }
@@ -57,6 +62,7 @@ public class OdontologoController {
         if (odontologoBuscado.isPresent()) {
             return ResponseEntity.ok(odontologoBuscado);
         } else {
+            logger.error("Odontólogo no existe");
             throw new ResourceNotFoundException("Odontólogo con " + matricula + " no encontrado");
         }
     }
@@ -68,8 +74,10 @@ public class OdontologoController {
             odontologoService.actualizarOdontologo(odontologo);
             return ResponseEntity.ok().body("Odontólogo actualizado con éxito");
         }else{
+            logger.error("Odontólogo no existe para actualizar");
             throw new BadRequestException("Odontólogo con ID " + odontologo.getId() +
                     " no se encuentra registrado para realizar la actualización");
+
         }
     }
 
@@ -79,6 +87,7 @@ public class OdontologoController {
             odontologoService.eliminarOdontologo(id);
             return ResponseEntity.ok().body("Odontólogo con ID: " + id + " eliminado con éxito ");
         } else {
+            logger.error("Odontólogo no existe");
             throw new ResourceNotFoundException("Odontólogo no encontrado para eliminar");
         }
     }
