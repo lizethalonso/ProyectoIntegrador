@@ -3,6 +3,7 @@ package Gomez_Alonso.ClinicaOdontologica.security;
 import Gomez_Alonso.ClinicaOdontologica.entity.*;
 import Gomez_Alonso.ClinicaOdontologica.repository.OdontologoRepository;
 import Gomez_Alonso.ClinicaOdontologica.repository.PacienteRepository;
+import Gomez_Alonso.ClinicaOdontologica.repository.TurnoRepository;
 import Gomez_Alonso.ClinicaOdontologica.repository.UsuarioRepository;
 import Gomez_Alonso.ClinicaOdontologica.service.OdontologoService;
 import Gomez_Alonso.ClinicaOdontologica.service.PacienteService;
@@ -13,6 +14,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.sql.Time;
 import java.time.LocalDate;
 
 @Component
@@ -25,6 +27,9 @@ public class DatosIniciales implements ApplicationRunner {
     private UsuarioRepository usuarioRepository;
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+    @Autowired
+    private TurnoRepository turnoRepository;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         String passSinCifrar= "admin";
@@ -35,8 +40,10 @@ public class DatosIniciales implements ApplicationRunner {
         Usuario usuario2 = new Usuario("user","user","user@user.com",passCifrado2, UsuarioRole.ROLE_USER);
         Paciente paciente= new Paciente("Julian", "Callejas", "123", LocalDate.of(2024,6,18),new Domicilio("40",12,"Quibdó","Chocó"),"julian@email.com");
         Paciente paciente1= new Paciente("Camila", "Mesa", "456", LocalDate.of(2024,6,19),new Domicilio("30",21,"Acacías","Meta"),"camila@email.com");
+        Paciente paciente2= new Paciente("Cristian", "Morales", "789", LocalDate.of(2024,6,19),new Domicilio("30",21,"Acacías","Meta"),"cristian@email.com");
         Odontologo odontologo = new Odontologo("ABC123","Lina","Gómez");
         Odontologo odontologo1 = new Odontologo("DEF234","Beatriz","Giraldo");
+        Turno turno= new Turno(paciente1,odontologo1, LocalDate.of(2024,12,2), Time.valueOf("13:00:00"));
         /*PacienteService pacienteService= new PacienteService();
         pacienteService.guardarPaciente(paciente);
         OdontologoService odontologoService = new OdontologoService();
@@ -45,7 +52,9 @@ public class DatosIniciales implements ApplicationRunner {
         pacienteRepository.save(paciente);
         odontologoRepository.save(odontologo);
         pacienteRepository.save(paciente1);
+        pacienteRepository.save(paciente2);
         odontologoRepository.save(odontologo1);
+        turnoRepository.save(turno);
         usuarioRepository.save(usuario);
         usuarioRepository.save(usuario2);
     }

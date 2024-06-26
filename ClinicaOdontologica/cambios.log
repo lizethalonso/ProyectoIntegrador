@@ -260,3 +260,25 @@ Database may be already in use: "C:/Users/lizet/clinicaOdontologica.mv.db". Poss
 [2024-05-31 18:08:32] [ INFO ] [DomicilioDAOH2:49] Iniciando la busqueda de un domicilio con id: 3
 [2024-05-31 18:10:04] [ INFO ] [DomicilioDAOH2:49] Iniciando la busqueda de un domicilio con id: 3
 [2024-05-31 21:07:11] [ INFO ] [DomicilioDAOH2:49] Iniciando la busqueda de un domicilio con id: 3
+[2024-06-25 19:41:59] [ ERROR] [OdontologoController:82] Odontólogo no existe
+[2024-06-25 19:46:49] [ ERROR] [OdontologoController:82] Odontólogo no existe
+[2024-06-25 19:46:50] [ ERROR] [OdontologoController:68] Odontólogo no existe
+[2024-06-25 19:49:21] [ ERROR] [OdontologoController:82] Odontólogo no existe
+[2024-06-25 19:49:21] [ ERROR] [OdontologoController:68] Odontólogo no existe
+[2024-06-25 19:51:10] [ ERROR] [OdontologoController:82] Odontólogo no existe
+[2024-06-25 19:51:10] [ ERROR] [OdontologoController:68] Odontólogo no existe
+[2024-06-25 19:57:34] [ ERROR] [OdontologoController:68] Odontólogo no existe
+[2024-06-25 20:20:52] [ ERROR] [OdontologoController:68] Odontólogo no existe
+[2024-06-25 20:22:05] [ ERROR] [OdontologoController:68] Odontólogo no existe
+[2024-06-25 20:23:23] [ ERROR] [OdontologoController:68] Odontólogo no existe
+[2024-06-25 20:26:52] [ ERROR] [OdontologoController:68] Odontólogo no existe
+[2024-06-25 20:26:52] [ ERROR] [OdontologoController:37] Ya existe un odontólogo registrado con la matrícula proporcionada
+[2024-06-25 20:30:28] [ ERROR] [OdontologoController:68] Odontólogo no existe
+[2024-06-25 20:30:28] [ ERROR] [OdontologoController:37] Ya existe un odontólogo registrado con la matrícula proporcionada
+[2024-06-25 20:35:23] [ ERROR] [OdontologoController:37] Ya existe un odontólogo registrado con la matrícula proporcionada
+[2024-06-25 21:31:35] [ ERROR] [PacienteController:98] Paciente no encontrado
+[2024-06-25 21:32:55] [ ERROR] [PacienteController:98] Paciente no encontrado
+[2024-06-25 21:35:40] [ ERROR] [PacienteController:98] Paciente no encontrado
+[2024-06-25 21:50:53] [ ERROR] [PacienteController:54] No se puede guardar el turno porque el paciente u odontólogo no existe
+[2024-06-25 21:58:43] [ ERROR] [PacienteController:68] Turno no encontrado
+[2024-06-25 22:01:05] [ ERROR] [PacienteController:133] No se puede eliminar un turno que no existe

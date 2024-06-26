@@ -9,6 +9,10 @@ import Gomez_Alonso.ClinicaOdontologica.exception.ResourceNotFoundException;
 import Gomez_Alonso.ClinicaOdontologica.service.OdontologoService;
 import Gomez_Alonso.ClinicaOdontologica.service.PacienteService;
 import Gomez_Alonso.ClinicaOdontologica.service.TurnoService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +24,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/turnos")
+@Tag(name = "Controller de Turnos", description = "Permite registrar, buscar, actualizar, eliminar y listar")
 public class TurnoController {
     @Autowired
     private TurnoService turnoService;
@@ -31,6 +36,9 @@ public class TurnoController {
     private static final Logger logger = Logger.getLogger(PacienteController.class);
 
     @PostMapping
+    @Operation(summary = "nos permite registrar", description = "enviar cédula del paciente, matrícula del odontólogo")
+    @ApiResponse(responseCode = "200", description = "Turno creado con exito")
+    @ApiResponse(responseCode = "400", description = "No se puede guardar el turno porque el paciente u odontólogo no existen")
     public ResponseEntity<Turno> guardarTurno(@RequestBody Turno turno) throws BadRequestException {
         // Buscamos al paciente y al odontólgo, se usa optional obligatoriamente porque es un objeto q no sabe si existe o no
         //Optional<Paciente> pacienteBuscado= pacienteService.buscarPorID(turno.getPaciente().getId());
@@ -49,6 +57,9 @@ public class TurnoController {
     }
 
     @GetMapping("/{id}")
+    @Parameter(description = "Nos permite buscar un turno por Id")
+    @ApiResponse(responseCode = "200", description = "Turno encontrado con éxito")
+    @ApiResponse(responseCode = "404", description = "No se puede encontrar el turno")
     public ResponseEntity<?> buscarPorId(@PathVariable Long id) throws ResourceNotFoundException {
         Optional<Turno> turnoBuscado = turnoService.buscarPorId(id);
         if (turnoBuscado.isPresent()){
@@ -60,6 +71,9 @@ public class TurnoController {
     }
 
     @GetMapping
+    @Parameter(description = "Nos permite listar todos los turnos")
+    @ApiResponse(responseCode = "200", description = "Lista mostrada con éxito")
+    @ApiResponse(responseCode = "204", description = "Lista vacía")
     public ResponseEntity<List<Turno>> buscarTodos() throws NoContentException {
         List<Turno> turnosBuscados = turnoService.buscarTodos();
         if (!turnosBuscados.isEmpty()) {
@@ -71,6 +85,10 @@ public class TurnoController {
     }
 
     @PutMapping
+    @Operation(summary = "Nos permite actualizar", description = "Enviar turno con cédula del paciente y matrícula del odontólogo")
+    @ApiResponse(responseCode = "200", description = "Turno actualizado con exito")
+    @ApiResponse(responseCode = "400", description = "Odontólogo o paciente no existe para actualizar turno")
+    @ApiResponse(responseCode = "400", description = "Turno no existe para actualizar")
     public ResponseEntity<?>actualizarTurno(@RequestBody Turno turno) throws BadRequestException {
         // Buscamos el turno para ver si existe
         Optional<Turno> turnoBuscado= turnoService.buscarPorId(turno.getId());
@@ -103,6 +121,9 @@ public class TurnoController {
     }
 
     @DeleteMapping("/eliminar/{id}")
+    @Operation(summary = "Nos permite eliminar", description = "Enviar id de turno")
+    @ApiResponse(responseCode = "200", description = "Turno eliminado con exito")
+    @ApiResponse(responseCode = "404", description = "Turno no encontrado")
     public ResponseEntity<String> eliminarTurno(@PathVariable Long id) throws ResourceNotFoundException{
         Optional<Turno> turnoBuscado= turnoService.buscarPorId(id);
         if (turnoBuscado.isPresent()) {

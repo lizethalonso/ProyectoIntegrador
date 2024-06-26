@@ -5,6 +5,10 @@ import Gomez_Alonso.ClinicaOdontologica.exception.BadRequestException;
 import Gomez_Alonso.ClinicaOdontologica.exception.NoContentException;
 import Gomez_Alonso.ClinicaOdontologica.exception.ResourceNotFoundException;
 import Gomez_Alonso.ClinicaOdontologica.service.PacienteService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,11 +23,15 @@ import java.util.Optional;
 // @Controller<-- es controller pq vamos a usar una tecnologia de vista
 
 @RequestMapping("/pacientes")
+@Tag(name = "Controller de Paciente", description = "Permite registrar, buscar, actualizar, eliminar y listar")
 public class PacienteController {
     @Autowired
     private PacienteService pacienteService;
     private static final Logger logger = Logger.getLogger(PacienteController.class);
 
+    @Operation(summary = "nos permite registrar", description = "Enviar paciente sin id")
+    @ApiResponse(responseCode = "200", description = "Paciente creado con exito")
+    @ApiResponse(responseCode = "400", description = "Ya existe un paciente con la cédula")
     @PostMapping //--> nos permite persistir los datos que vienen desde la vista
     public ResponseEntity<?> guardarPaciente(@RequestBody Paciente paciente) throws BadRequestException {
         Optional<Paciente> pacienteExistente = pacienteService.buscarPorCedula(paciente.getCedula());
@@ -36,6 +44,9 @@ public class PacienteController {
     }
 
     @GetMapping
+    @Parameter(description = "Nos permite listar todos los pacientes")
+    @ApiResponse(responseCode = "200", description = "Lista mostrada con éxito")
+    @ApiResponse(responseCode = "204", description = "Lista vacía")
     public ResponseEntity<List<Paciente>> buscarTodos() throws NoContentException {
         List<Paciente> pacientes = pacienteService.buscarTodos();
         if (!pacientes.isEmpty()) {
@@ -47,6 +58,9 @@ public class PacienteController {
     }
 
     @GetMapping("/{id}")
+    @Parameter(description = "Nos permite buscar un paciente por Id")
+    @ApiResponse(responseCode = "200", description = "Paciente encontrado con éxito")
+    @ApiResponse(responseCode = "404", description = "No se puede encontrar el paciente")
     public ResponseEntity<?> buscarPorPaciente(@PathVariable Long id) throws ResourceNotFoundException{
         Optional<Paciente> pacienteBuscado = pacienteService.buscarPorID(id);
         if (pacienteBuscado.isPresent()){
@@ -58,6 +72,9 @@ public class PacienteController {
     }
 
     @GetMapping("/email/{email}")
+    @Parameter(description = "Nos buscar un paciente por email")
+    @ApiResponse(responseCode = "200", description = "Paciente encontrado con éxito")
+    @ApiResponse(responseCode = "404", description = "No se puede encontrar el paciente")
     public ResponseEntity<?> buscarPorEmail(@PathVariable String email) throws ResourceNotFoundException{
         Optional<Paciente> pacienteBuscado = pacienteService.buscarPorEmail(email);
         if (pacienteBuscado.isPresent()){
@@ -70,6 +87,9 @@ public class PacienteController {
     }
 
     @GetMapping("/cedula/{cedula}")
+    @Parameter(description = "Nos buscar un paciente por cédula")
+    @ApiResponse(responseCode = "200", description = "Paciente encontrado con éxito")
+    @ApiResponse(responseCode = "404", description = "No se puede encontrar el paciente")
     public ResponseEntity<?> buscarPorCedula(@PathVariable String cedula) throws ResourceNotFoundException{
         Optional<Paciente> pacienteBuscado = pacienteService.buscarPorCedula(cedula);
         if (pacienteBuscado.isPresent()){
@@ -81,6 +101,9 @@ public class PacienteController {
     }
 
     @PutMapping
+    @Operation(summary = "Nos permite actualizar", description = "Enviar paciente con id")
+    @ApiResponse(responseCode = "200", description = "Paciente actualizado con exito")
+    @ApiResponse(responseCode = "400", description = "Paciente no existe para actualizar")
     public ResponseEntity<String> actualizarPaciente(@RequestBody Paciente paciente) throws BadRequestException {
         Optional<Paciente> pacienteBuscado= pacienteService.buscarPorID(paciente.getId());
         if(pacienteBuscado.isPresent()){
@@ -95,6 +118,9 @@ public class PacienteController {
     }
 
     @DeleteMapping("/eliminar/{id}")
+    @Operation(summary = "Nos permite eliminar", description = "Enviar id de paciente")
+    @ApiResponse(responseCode = "200", description = "Paciente eliminado con exito")
+    @ApiResponse(responseCode = "404", description = "Paciente no encontrado")
     public ResponseEntity<String> eliminarPaciente(@PathVariable Long id) throws ResourceNotFoundException {
         if (pacienteService.buscarPorID(id).isPresent()){
             pacienteService.eliminarPaciente(id);
